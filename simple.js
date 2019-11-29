@@ -1,26 +1,23 @@
-// źródło url 
-// zdjęcie wybierane randomowo
-// kontener z id, w który wrzucam randomowy image
-// button, który będzie miał funkcję wywoływania ten akcji
+
 document.addEventListener("DOMContentLoaded", function () {
-    var randomCatButton = document.getElementById("randomCatButton");
+    var randomDoggoButton = document.getElementById("randomDoggoButton");
     // onclick
-    randomCatButton.addEventListener('click', function (params) {
-        getCatImage();
+    randomDoggoButton.addEventListener('click', function (params) {
+        getDoggoImage();
     });
     // run the app
-    getCatImage();
+    getDoggoImage();
 });
 
-const url = 'http://aws.random.cat/meow';
+const url = 'https://dog.ceo/api/breeds/image/random';
 
-// const readyImage = document.getElementById("catImage");
-function getCatImage() {
+// const readyImage = document.getElementById("doggoImage");
+function getDoggoImage() {
     let callback = function (data) {
 
         var parsedData = JSON.parse(data);
-        var readyImage = document.getElementById("catImage");
-        readyImage.src = parsedData.file;
+        var readyImage = document.getElementById('doggoImage');
+        readyImage.src = parsedData.message;
 
     };
     httpGetAsync(url, callback);
